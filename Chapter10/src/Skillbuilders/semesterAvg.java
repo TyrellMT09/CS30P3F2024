@@ -4,12 +4,10 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
 import java.awt.TextField;
 import java.awt.Button;
-import java.awt.TextArea;
 import java.awt.Label;
 import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
