@@ -70,6 +70,9 @@ public class LatinPlantNames {
 					CN.setText("Apium");
 				}
 				else if (PN.getSelectedItem().equals("peppermint")) {
+					CN.setText("Mentha piperita");
+				}
+				else if (PN.getSelectedItem().equals("saffron")) {
 					CN.setText("Crocus");
 				}
 				else if (PN.getSelectedItem().equals("sage")) {
