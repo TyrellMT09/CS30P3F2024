@@ -4,7 +4,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JComboBox;
-import java.awt.BorderLayout;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -63,10 +62,30 @@ public class LocalBankGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		ALTpoor = new JLabel("");
-		ALTpoor.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 14));
+		JLabel lblNewLabel = new JLabel("Account Number:");
+		lblNewLabel.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
+		lblNewLabel.setBounds(34, 68, 210, 19);
+		frame.getContentPane().add(lblNewLabel);
+		
+		ALTpoor = new JLabel("Amount of deposit/withdrawal:\r\n");
+		ALTpoor.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
 		ALTpoor.setBounds(34, 114, 210, 19);
 		frame.getContentPane().add(ALTpoor);
+	
+		ALTfname = new JLabel("First Name:");
+		ALTfname.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
+		ALTfname.setBounds(34, 160, 210, 19);
+		frame.getContentPane().add(ALTfname);
+		
+		ALTlname = new JLabel("Last Name:");
+		ALTlname.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
+		ALTlname.setBounds(34, 206, 210, 19);
+		frame.getContentPane().add(ALTlname);
+		
+		ALToclock = new JLabel("Beginning Balance: ");
+		ALToclock.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
+		ALToclock.setBounds(34, 252, 210, 19);
+		frame.getContentPane().add(ALToclock);
 		
 		acctNum = new JTextField();
 		acctNum.addMouseListener(new MouseAdapter() 
@@ -78,27 +97,13 @@ public class LocalBankGUI {
 			}
 		});
 		
-		ALTfname = new JLabel("");
-		ALTfname.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 14));
-		ALTfname.setBounds(34, 160, 210, 19);
-		frame.getContentPane().add(ALTfname);
-		
-		ALTlname = new JLabel("");
-		ALTlname.setBounds(34, 206, 210, 19);
-		frame.getContentPane().add(ALTlname);
-		
-		ALToclock = new JLabel("");
-		ALToclock.setBounds(34, 253, 210, 19);
-		frame.getContentPane().add(ALToclock);
-		acctNum.setForeground(new Color(128, 128, 128));
-		acctNum.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 13));
-		acctNum.setText("Enter account Number: ");
+		acctNum.setForeground(Color.BLACK);
+		acctNum.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
 		acctNum.setBounds(34, 88, 436, 19);
 		frame.getContentPane().add(acctNum);
 		acctNum.setColumns(10);
 		
 		amt = new JTextField();
-		amt.setText("Enter amount: ");
 		
 		amt.addMouseListener(new MouseAdapter() 
 		{
@@ -113,14 +118,13 @@ public class LocalBankGUI {
 			}
 		});
 		
-		amt.setForeground(new Color(128, 128, 128));
-		amt.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 13));
+		amt.setForeground(Color.BLACK);
+		amt.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
 		amt.setColumns(10);
 		amt.setBounds(34, 134, 436, 19);
 		frame.getContentPane().add(amt);
 		
 		fName = new JTextField();
-		fName.setText("Enter first name: ");
 		
 		fName.addMouseListener(new MouseAdapter() 
 		{
@@ -134,15 +138,14 @@ public class LocalBankGUI {
 			}
 		});
 		
-		fName.setForeground(new Color(128, 128, 128));
-		fName.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 13));
+		fName.setForeground(Color.BLACK);
+		fName.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
 		fName.setColumns(10);
 		fName.setBounds(34, 180, 436, 19);
 		frame.getContentPane().add(fName);
 		
 		
 		lName = new JTextField();
-		lName.setText("Enter last name: ");
 		
 		lName.addMouseListener(new MouseAdapter() 
 		{
@@ -156,14 +159,13 @@ public class LocalBankGUI {
 			}
 		});
 		
-		lName.setForeground(new Color(64, 0, 64));
-		lName.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 13));
+		lName.setForeground(Color.BLACK);
+		lName.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
 		lName.setColumns(10);
 		lName.setBounds(34, 226, 436, 19);
 		frame.getContentPane().add(lName);
 		
 		begBalance = new JTextField();
-		begBalance.setText("Enter beginning balance: ");
 		
 		begBalance.addMouseListener(new MouseAdapter() 
 		{
@@ -178,8 +180,8 @@ public class LocalBankGUI {
 			}
 		});
 		
-		begBalance.setForeground(new Color(64, 0, 64));
-		begBalance.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 13));
+		begBalance.setForeground(Color.BLACK);
+		begBalance.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
 		begBalance.setColumns(10);
 		begBalance.setBounds(34, 272, 436, 19);
 		frame.getContentPane().add(begBalance);
@@ -189,7 +191,7 @@ public class LocalBankGUI {
 		acctinfo.setBounds(34, 296, 436, 52);
 		frame.getContentPane().add(acctinfo);
 		
-		JComboBox bankActivities = new JComboBox();
+		JComboBox<String> bankActivities = new JComboBox<String>();
 		
 		JButton btnNewButton = new JButton("Process Transaction");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -251,15 +253,27 @@ public class LocalBankGUI {
 				}
 				else if(bankActivities.getSelectedItem().equals("Withdrawal"))
 				{
-					
+					acctNum.setForeground(Color.red);
+					amt.setForeground(Color.red);
 				}
-					
-				
-				
+				else if(bankActivities.getSelectedItem().equals("Check Balance"))
+				{
+					acctNum.setForeground(Color.red);		
+				}
+				else if(bankActivities.getSelectedItem().equals("Add Account"))
+				{
+					fName.setForeground(Color.red);
+					lName.setForeground(Color.red);
+					begBalance.setForeground(Color.red);	
+				}
+				else if(bankActivities.getSelectedItem().equals("Remove Account"))
+				{
+					acctNum.setForeground(Color.red);		
+				}
 			}
 		});
-		bankActivities.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 14));
-		bankActivities.setModel(new DefaultComboBoxModel(new String[] {"Select an action:", "Deposit", "Withdrawal", "Check Balance", "Add Account", "Remove Account"}));
+		bankActivities.setFont(new Font("Yu Gothic UI Light", Font.BOLD, 14));
+		bankActivities.setModel(new DefaultComboBoxModel<String>(new String[] {"Select an action:", "Deposit", "Withdrawal", "Check Balance", "Add Account", "Remove Account"}));
 		bankActivities.setBounds(34, 30, 436, 29);
 		frame.getContentPane().add(bankActivities);
 	}
