@@ -18,21 +18,18 @@ import java.awt.event.MouseEvent;
 public class LocalBankGUI {
 
 	private JFrame frame;
-	private JTextField acctNum;
-	private JTextField amt;
-	private JTextField fName;
-	private JTextField lName;
-	private JTextField begBalance;
+	private JTextField Act_us;
+	private JTextField Wth_Dpt_us;
+	private JTextField Fname_us;
+	private JTextField Lname_us;
+	private JTextField BegB_us;
 	
 	Bank easySave = new Bank();
-	private JLabel ALTpoor;
-	private JLabel ALTfname;
-	private JLabel ALTlname;
-	private JLabel ALToclock;
+	private JLabel up_Wth_Dpt;
+	private JLabel up_Fname;
+	private JLabel up_Lname;
+	private JLabel up_BegB;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -46,198 +43,144 @@ public class LocalBankGUI {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public LocalBankGUI() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 521, 459);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Account Number:");
-		lblNewLabel.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
-		lblNewLabel.setBounds(34, 68, 210, 19);
+		JLabel lblNewLabel = new JLabel("Complete the information in RED");
+		lblNewLabel.setForeground(Color.BLACK);
+		lblNewLabel.setFont(new Font("Yu Gothic UI", Font.BOLD, 12));
+		lblNewLabel.setBounds(254, 381, 182, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
-		ALTpoor = new JLabel("Amount of deposit/withdrawal:\r\n");
-		ALTpoor.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
-		ALTpoor.setBounds(34, 114, 210, 19);
-		frame.getContentPane().add(ALTpoor);
+		JLabel up_Act = new JLabel("Account Number:");
+		up_Act.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
+		up_Act.setBounds(34, 68, 210, 19);
+		frame.getContentPane().add(up_Act);
+		
+		up_Wth_Dpt = new JLabel("Amount of deposit/withdrawal:\r\n");
+		up_Wth_Dpt.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
+		up_Wth_Dpt.setBounds(34, 114, 210, 19);
+		frame.getContentPane().add(up_Wth_Dpt);
 	
-		ALTfname = new JLabel("First Name:");
-		ALTfname.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
-		ALTfname.setBounds(34, 160, 210, 19);
-		frame.getContentPane().add(ALTfname);
+		up_Fname = new JLabel("First Name:");
+		up_Fname.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
+		up_Fname.setBounds(34, 160, 210, 19);
+		frame.getContentPane().add(up_Fname);
 		
-		ALTlname = new JLabel("Last Name:");
-		ALTlname.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
-		ALTlname.setBounds(34, 206, 210, 19);
-		frame.getContentPane().add(ALTlname);
+		up_Lname = new JLabel("Last Name:");
+		up_Lname.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
+		up_Lname.setBounds(34, 206, 210, 19);
+		frame.getContentPane().add(up_Lname);
 		
-		ALToclock = new JLabel("Beginning Balance: ");
-		ALToclock.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
-		ALToclock.setBounds(34, 252, 210, 19);
-		frame.getContentPane().add(ALToclock);
+		up_BegB = new JLabel("Beginning Balance: ");
+		up_BegB.setFont(new Font("Yu Gothic UI", Font.BOLD, 14));
+		up_BegB.setBounds(34, 252, 210, 19);
+		frame.getContentPane().add(up_BegB);
 		
-		acctNum = new JTextField();
-		acctNum.addMouseListener(new MouseAdapter() 
+		Act_us = new JTextField();
+		Act_us.addMouseListener(new MouseAdapter() 
 		{
 			@Override
 			public void mouseClicked(MouseEvent e) 
 			{
-				acctNum.setText(null);
+				Act_us.setText(null);
 			}
 		});
 		
-		acctNum.setForeground(Color.BLACK);
-		acctNum.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
-		acctNum.setBounds(34, 88, 436, 19);
-		frame.getContentPane().add(acctNum);
-		acctNum.setColumns(10);
+		Act_us.setForeground(Color.BLACK);
+		Act_us.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
+		Act_us.setBounds(34, 88, 436, 19);
+		frame.getContentPane().add(Act_us);
+		Act_us.setColumns(10);
 		
-		amt = new JTextField();
+		Wth_Dpt_us = new JTextField();
+		Wth_Dpt_us.setForeground(Color.BLACK);
+		Wth_Dpt_us.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
+		Wth_Dpt_us.setColumns(10);
+		Wth_Dpt_us.setBounds(34, 134, 436, 19);
+		frame.getContentPane().add(Wth_Dpt_us);
 		
-		amt.addMouseListener(new MouseAdapter() 
-		{
-			@Override
-			public void mouseClicked(MouseEvent e) 
-			{
-				
-				amt.setText("");
-				ALTpoor.setText("Amount of deposit/withdrawal: ");
-				
-				
-			}
-		});
-		
-		amt.setForeground(Color.BLACK);
-		amt.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
-		amt.setColumns(10);
-		amt.setBounds(34, 134, 436, 19);
-		frame.getContentPane().add(amt);
-		
-		fName = new JTextField();
-		
-		fName.addMouseListener(new MouseAdapter() 
-		{
-			@Override
-			public void mouseClicked(MouseEvent e) 
-			{
-				
-				fName.setText("");
-				ALTfname.setText("First Name: ");
-				
-			}
-		});
-		
-		fName.setForeground(Color.BLACK);
-		fName.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
-		fName.setColumns(10);
-		fName.setBounds(34, 180, 436, 19);
-		frame.getContentPane().add(fName);
+		Fname_us = new JTextField();
+		Fname_us.setForeground(Color.BLACK);
+		Fname_us.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
+		Fname_us.setColumns(10);
+		Fname_us.setBounds(34, 180, 436, 19);
+		frame.getContentPane().add(Fname_us);
 		
 		
-		lName = new JTextField();
+		Lname_us = new JTextField();
+		Lname_us.setForeground(Color.BLACK);
+		Lname_us.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
+		Lname_us.setColumns(10);
+		Lname_us.setBounds(34, 226, 436, 19);
+		frame.getContentPane().add(Lname_us);
 		
-		lName.addMouseListener(new MouseAdapter() 
-		{
-			@Override
-			public void mouseClicked(MouseEvent e) 
-			{
-				
-				lName.setText("");
-				ALTlname.setText("Last Name: ");
-				
-			}
-		});
+		BegB_us = new JTextField();
+		BegB_us.setForeground(Color.BLACK);
+		BegB_us.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
+		BegB_us.setColumns(10);
+		BegB_us.setBounds(34, 272, 436, 19);
+		frame.getContentPane().add(BegB_us);
 		
-		lName.setForeground(Color.BLACK);
-		lName.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
-		lName.setColumns(10);
-		lName.setBounds(34, 226, 436, 19);
-		frame.getContentPane().add(lName);
-		
-		begBalance = new JTextField();
-		
-		begBalance.addMouseListener(new MouseAdapter() 
-		{
-			@Override
-			public void mouseClicked(MouseEvent e) 
-			{
-				
-				begBalance.setText("");
-				ALToclock.setText("Beginning Balance: ");
-				
-				
-			}
-		});
-		
-		begBalance.setForeground(Color.BLACK);
-		begBalance.setFont(new Font("Yu Gothic UI", Font.PLAIN, 13));
-		begBalance.setColumns(10);
-		begBalance.setBounds(34, 272, 436, 19);
-		frame.getContentPane().add(begBalance);
-		
-		JLabel acctinfo = new JLabel("Account info displayed here");
-		acctinfo.setFont(new Font("Tw Cen MT Condensed Extra Bold", Font.PLAIN, 16));
-		acctinfo.setBounds(34, 296, 436, 52);
-		frame.getContentPane().add(acctinfo);
+		JLabel Act_dis = new JLabel("Account info displayed here");
+		Act_dis.setFont(new Font("Yu Gothic UI", Font.PLAIN, 16));
+		Act_dis.setBounds(34, 296, 436, 52);
+		frame.getContentPane().add(Act_dis);
 		
 		JComboBox<String> bankActivities = new JComboBox<String>();
 		
-		JButton btnNewButton = new JButton("Process Transaction");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton Submit = new JButton("Process Transaction");
+		Submit.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        String amount, message;
 		        try {
 		            if(bankActivities.getSelectedItem().equals("Deposit")) 
 		            {
-		                amount = amt.getText();
-		                message = easySave.transaction(1, acctNum.getText(), Double.parseDouble(amount));
-		                acctinfo.setText(message);
+		                amount = Wth_Dpt_us.getText();
+		                message = easySave.transaction(1, Act_us.getText(), Double.parseDouble(amount));
+		                Act_dis.setText(message);
 		            } 
 		            
 		            else if(bankActivities.getSelectedItem().equals("Withdrawal")) 
 		            {
-		                amount = amt.getText();
-		                message = easySave.transaction(2, acctNum.getText(), Double.parseDouble(amount));
-		                acctinfo.setText(message);
+		                amount = Wth_Dpt_us.getText();
+		                message = easySave.transaction(2, Act_us.getText(), Double.parseDouble(amount));
+		                Act_dis.setText(message);
 		            }
 		            else if(bankActivities.getSelectedItem().equals("Check Balance")) 
 		            {
-		                message = easySave.checkBalance(acctNum.getText());
-		                acctinfo.setText(message);
+		                message = easySave.checkBalance(Act_us.getText());
+		                Act_dis.setText(message);
 		            } 
 		            else if(bankActivities.getSelectedItem().equals("Add Account")) 
 		            {
-		                amount = begBalance.getText();
-		                message = easySave.addAccount(fName.getText(), lName.getText(), Double.parseDouble(amount));
-		                acctinfo.setText("New Account ID: " + message);
+		                amount = BegB_us.getText();
+		                message = easySave.addAccount(Fname_us.getText(), Lname_us.getText(), Double.parseDouble(amount));
+		                Act_dis.setText("New Account ID: " + message);
 		            } 
 		            else if(bankActivities.getSelectedItem().equals("Remove Account")) 
 		            {
-		                message = easySave.deleteAccount(acctNum.getText());
-		                acctinfo.setText(message);
+		                message = easySave.deleteAccount(Act_us.getText());
+		                Act_dis.setText(message);
 		            }
 		            
 		        } catch (NumberFormatException ex) 
 		        
 		        {
-		            acctinfo.setText("Invalid input. Please enter a valid number.");
+		            Act_dis.setText("Invalid input. Please enter a valid number.");
 		        }
 		    }
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnNewButton.setBounds(34, 355, 210, 43);
-		frame.getContentPane().add(btnNewButton);
+		Submit.setFont(new Font("Yu Gothic UI", Font.BOLD, 16));
+		Submit.setBounds(34, 355, 210, 43);
+		frame.getContentPane().add(Submit);
 		
 		
 		
@@ -248,27 +191,66 @@ public class LocalBankGUI {
 				
 				if(bankActivities.getSelectedItem().equals("Deposit"))
 				{
-					acctNum.setForeground(Color.red);
-					amt.setForeground(Color.red);
+					up_Act.setForeground(Color.red);
+					up_Wth_Dpt.setForeground(Color.red);
 				}
 				else if(bankActivities.getSelectedItem().equals("Withdrawal"))
 				{
-					acctNum.setForeground(Color.red);
-					amt.setForeground(Color.red);
+					up_Act.setForeground(Color.red);
+					up_Wth_Dpt.setForeground(Color.red);
 				}
 				else if(bankActivities.getSelectedItem().equals("Check Balance"))
 				{
-					acctNum.setForeground(Color.red);		
+					up_Act.setForeground(Color.red);		
 				}
 				else if(bankActivities.getSelectedItem().equals("Add Account"))
 				{
-					fName.setForeground(Color.red);
-					lName.setForeground(Color.red);
-					begBalance.setForeground(Color.red);	
+					up_Fname.setForeground(Color.red);
+					up_Lname.setForeground(Color.red);
+					up_BegB.setForeground(Color.red);	
 				}
 				else if(bankActivities.getSelectedItem().equals("Remove Account"))
 				{
-					acctNum.setForeground(Color.red);		
+					up_Act.setForeground(Color.red);		
+				}
+			}
+		});
+		
+		bankActivities.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				
+				if(bankActivities.getSelectedItem().equals("Deposit"))
+				{
+					up_Fname.setForeground(Color.black);
+					up_Lname.setForeground(Color.black);
+					up_BegB.setForeground(Color.black);
+				}
+				else if(bankActivities.getSelectedItem().equals("Withdrawal"))
+				{
+					up_Fname.setForeground(Color.black);
+					up_Lname.setForeground(Color.black);
+					up_BegB.setForeground(Color.black);
+				}
+				else if(bankActivities.getSelectedItem().equals("Check Balance"))
+				{
+					up_Wth_Dpt.setForeground(Color.black);
+					up_Fname.setForeground(Color.black);
+					up_Lname.setForeground(Color.black);
+					up_BegB.setForeground(Color.black);		
+				}
+				else if(bankActivities.getSelectedItem().equals("Add Account"))
+				{
+					up_Act.setForeground(Color.black);
+					up_Wth_Dpt.setForeground(Color.black);
+				}
+				else if(bankActivities.getSelectedItem().equals("Remove Account"))
+				{
+					up_Wth_Dpt.setForeground(Color.black);
+					up_Fname.setForeground(Color.black);
+					up_Lname.setForeground(Color.black);
+					up_BegB.setForeground(Color.black);	
 				}
 			}
 		});
