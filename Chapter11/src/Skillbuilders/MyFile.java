@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class MyFile 
+
 {
 
 	public static void main(String[] args) 
@@ -24,7 +25,19 @@ public class MyFile
 		}
 		else 
 		{
-			System.out.println("File doesn't exists.");
+			try 
+			{
+				user_File.createNewFile();
+				System.out.println("New file Created");
+				
+			}
+			catch (IOException e) 
+			{
+				System.out.println("File could not be created");
+				System.err.println("IOException: " + e.getMessage());
+			}
 		}
+		
+	
 	}
 }
