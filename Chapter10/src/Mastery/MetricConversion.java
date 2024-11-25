@@ -80,7 +80,7 @@ public class MetricConversion {
 			}
 		});
 		Convert.setFont(new Font("Tahoma", Font.BOLD, 10));
-		Convert.setModel(new DefaultComboBoxModel<String>(new String[] {"Inches To Centimeters", "Feet To Meters", "Gallon To Liters", "Pound To Kilograms"}));
+		Convert.setModel(new DefaultComboBoxModel<String>(new String[] {"None", "Inches To Centimeters", "Feet To Meters", "Gallon To Liters", "Pound To Kilograms"}));
 		Convert.setBounds(32, 32, 322, 22);
 		panel.add(Convert);
 		
