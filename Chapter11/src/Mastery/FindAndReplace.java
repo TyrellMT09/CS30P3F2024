@@ -13,19 +13,25 @@ public class FindAndReplace
 		File OFILE;
 		FileReader in;
 	    BufferedReader readFile;
+	    
 	    Scanner User = new Scanner(System.in);
+	  
+	    String TextToVARI, random, oldT, newT;
 	    
 	    System.out.println("Enter a file:");
-	    
-	    String TextToVARI, random;
-	    
 		TextToVARI = User.next();
-		User.close();
+	
 		
-		String Newline = ("C:\\Users\\16282511\\Downloads\\" + TextToVARI);
+		String PathtoC = ("C:\\Users\\16282511\\Downloads\\" + TextToVARI);
 		
-		OFILE = new File(Newline);
+		OFILE = new File(PathtoC);
 	    
+		System.out.println("Enter the (phase or word) you want to change");
+		oldT = User.next();
+		
+		System.out.println("Enter the (phase or word) you want to change with");
+		newT = User.next();
+		
 		if(OFILE.exists()) 
 		{
 			System.out.println("File already exists.");
@@ -53,8 +59,9 @@ public class FindAndReplace
 			
 			while((random = readFile.readLine()) != null)
 			{
-				System.out.println(random);
+				random = random.replaceAll(oldT, newT);
 			}
+			System.out.println("The new file text: " + random);
 		}
 		catch (FileNotFoundException e) 
         {
